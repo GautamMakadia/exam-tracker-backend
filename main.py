@@ -1,7 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
-
+import uvicorn
 
 from fastapi.middleware.cors import CORSMiddleware
 from router import records, collection
@@ -33,3 +33,7 @@ async def hello():
     return {
         "msg": "this is atmiya exam tracker api"
     }
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
